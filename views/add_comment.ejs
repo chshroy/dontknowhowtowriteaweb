@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div style="float:left">
+            <a href="/">Home</a>
+        </div>
+        <div style="float:right">
+            <a href="users/signout">Signout</a>
+            <a href="users/profile">profile</a>
+        </div>
+        <div>
+            <p>leave a message</p>
+            <form name="add" action="/apis/add_comment/<%= articleID %>" method="POST">
+                <textarea cols="50" rows="25" name="comment"></textarea>
+                <input type="submit" value="submit" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div style="float:left">
+            <a href="/">Home</a>
+        </div>
+        <div style="float:right">
+            <% console.log(username) %>
+            <% console.log(authenticated) %>
+            <% if (username && authenticated) { %>
+                
+                <a href="/users/signout">Signout</a>
+                <a href="/users/add_article">add article</a>
+                <a href="/users/profile">profile</a>
+                
+            <% } else { %>
+                <a href="/users/signin">signin</a>
+                <a href="/users/register">register</a>
+                <a href="/users/forget">forgot password</a>
+            <% } %>
+            
+        </div>
+        <% for(let i = 0; i < articles.length; i++) { %>
+            <article>
+                
+                <p><%= articles[i].Article %></p>
+                <p><%= articles[i].Username %></p>
+                <p><%= articles[i].CreateDate %></p>
+                <!-- remark the way ejs combine href -->
+                <a href="/apis/delete/<%= articles[i].id %>">delete</a>
+                <a href="/users/modify/<%= articles[i].id %>">modify</a>
+                <a href="/users/add_comment/<%= articles[i].id %>">add comment</a>
+                <p> comments: </p>
+                <% for(let j = 0; j < articles[i].Comments.length; j++) { %>
+                    <% console.log(articles[i].Comments[j].Comment) %>
+                    <p><%= articles[i].Comments[j].Comment %></p>    
+                <% }%>
+            </article>
+        <% } %>
+    </body>
+</html>
